@@ -4,4 +4,6 @@
 .vscode/
 node_modules/
 docx-render-*/
+docx-template-*/
 build_feishu_docx.py
+build_template_docx.py
