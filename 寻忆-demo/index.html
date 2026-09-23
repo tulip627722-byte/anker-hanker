@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>寻忆｜家庭声音记忆</title>
+  <meta name="theme-color" content="#f7f1e7" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+<main class="app-shell">
+  <header class="topbar">
+    <div><p class="overline">9 月 23 日 · 星期三</p><h1>早上好，林奶奶</h1></div>
+    <button class="avatar" data-view="hardware" aria-label="查看寻忆珠珠">林</button>
+  </header>
+
+  <section class="view active" data-view-panel="home">
+    <section class="arrival-card" id="arrivalCard">
+      <div class="arrival-copy">
+        <span class="soft-status"><i></i>珠珠刚刚回来了</span>
+        <h2>有一段声音，<br>想带你回到一个地方。</h2>
+        <p>18 秒 · 旧电影院附近</p>
+      </div>
+      <div class="bead-stage" aria-hidden="true">
+        <span class="orbit orbit-one"></span><span class="orbit orbit-two"></span>
+        <img src="../assets/xunyi-bean-product.png" alt="" />
+      </div>
+      <button class="receive-button" id="receiveButton"><span>收下这段声音</span><b>轻触接收</b></button>
+      <button class="demo-trigger" id="hardwareDemo">模拟珠珠刚完成录音</button>
+    </section>
+
+    <section class="unfold-card locked" id="unfoldCard">
+      <div class="unfold-head"><span>正在浮现</span><small id="unfoldTime">今天 08:42</small></div>
+      <p class="quote">“那时候，电影院门口有一棵很大的香樟树……”</p>
+      <div class="clue-row"><span>旧电影院</span><span>一场雨</span><span>两个人</span></div>
+      <div class="story-link"><div><small>它好像和一段旧故事有关</small><h3>第一次和爷爷看电影</h3></div><button data-view="story">听完整故事</button></div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-title"><div><span>最近想起</span><h2>声音会慢慢长成故事</h2></div><button data-view="timeline">看看走过的地方</button></div>
+      <div class="memory-strip">
+        <article class="mini-memory warm" data-view="story"><small>1987 · 夏天</small><h3>第一次和爷爷看电影</h3><p>2 段声音 · 1 个地方</p></article>
+        <article class="mini-memory green"><small>1994 · 春天</small><h3>院子里那棵枇杷树</h3><p>3 段声音 · 妈妈补充过</p></article>
+      </div>
+    </section>
+  </section>
+
+  <section class="view" data-view-panel="story">
+    <button class="back-button" data-view="home">返回今天</button>
+    <header class="story-header"><span>1987 · 夏天</span><h2>那年，电影院门口有棵香樟树</h2><p>由两次讲述慢慢拼在一起</p></header>
+    <article class="voice-card">
+      <div class="voice-source"><span class="speaker">林</span><div><b>林奶奶的原声</b><small>今天 08:42 · 00:18</small></div></div>
+      <input id="audioProgress" type="range" min="0" max="18" value="0" aria-label="原声播放进度" />
+      <div class="voice-controls"><span id="audioTime">00:00</span><button id="playEvidence">播放原声</button><span>00:18</span></div>
+    </article>
+    <article class="story-body">
+      <p>那是奶奶第一次和爷爷单独去看电影。散场时下起了雨，两个人在香樟树下等了很久。后来每次经过这里，她都会想起那场雨。</p>
+      <div class="memory-stamps"><span>奶奶与爷爷</span><span>旧电影院</span><span>时间尚未确认</span></div>
+      <button class="trace-toggle" id="traceToggle">看看这段故事从哪里来</button>
+      <div class="trace-panel" id="tracePanel" hidden><p>今天的原声提供了“香樟树”和“第一次看电影”；6 月 12 日的原声补充了“散场下雨”。不确定的年份没有被 AI 补写。</p></div>
+    </article>
+    <button class="family-handoff" data-view="family"><span>今晚一起听</span><b>把这段故事留给家人接着问</b></button>
+  </section>
+
+  <section class="view" data-view-panel="family">
+    <button class="back-button" data-view="home">返回今天</button>
+    <header class="page-heading"><span>今晚一起听</span><h2>别急着问，先听她说完。</h2><p>当谈话停下来时，寻忆再递来一句话。</p></header>
+    <article class="listening-card">
+      <span class="listening-label">正在听</span>
+      <p>“那场雨很大，我们就在树下面等……”</p>
+      <div class="pause-line"><span></span><small>停顿 3 秒</small></div>
+      <div class="prompt-card" id="promptCard"><small>可以顺着这里问</small><h3 id="promptText">“后来雨停了吗？”</h3><div><button id="nextPrompt">换一句</button><button id="usePrompt">轻声问她</button></div></div>
+    </article>
+    <article class="related-memory" data-view="story"><span>刚刚想起的故事</span><h3>第一次和爷爷看电影</h3><p>轻触可以回到那段原声</p></article>
+  </section>
+
+  <section class="view" data-view-panel="timeline">
+    <button class="back-button" data-view="home">返回今天</button>
+    <header class="page-heading"><span>声音走过的地方</span><h2>有些地点，一开口就是从前。</h2></header>
+    <article class="memory-map" id="memoryMap"><img src="../assets/xunyi-bean-product.png" alt="寻忆珠珠" /><button class="place-pin active" data-place="cinema">旧电影院</button><button class="place-pin garden" data-place="garden">老院子</button></article>
+    <article class="place-story" id="placeStory"><small>旧电影院 · 2 段声音</small><h3>第一次和爷爷看电影</h3><p>“电影院门口有一棵很大的香樟树……”</p><button data-view="story">回到这段声音</button></article>
+    <section class="year-list"><span>1987</span><div><h3>第一次和爷爷看电影</h3><p>夏天 · 旧电影院</p></div><span>1994</span><div><h3>院子里那棵枇杷树</h3><p>春天 · 老院子</p></div></section>
+  </section>
+
+  <section class="view" data-view-panel="hardware">
+    <button class="back-button" data-view="home">返回今天</button>
+    <header class="page-heading"><span>陪在身边</span><h2>一颗珠珠，替你接住突然想起的话。</h2></header>
+    <article class="device-card"><img src="../assets/xunyi-bean-product.png" alt="手机挂绳上的寻忆珠珠" /><div class="device-live"><i></i><span>在身边 · 电量 82%</span></div></article>
+    <div class="quiet-settings"><button id="locationToggle"><span>经过熟悉的地方</span><b>偶尔提醒我想一想</b><em>开启</em></button><button><span>声音回到手机后</span><b>先放进只属于我的空间</b><em>默认</em></button><button><span>如果不想留下</span><b>原声和故事都可以彻底删除</b><em>管理</em></button></div>
+  </section>
+
+  <nav class="bottom-nav" aria-label="主导航">
+    <button class="nav-item active" data-view="home"><span></span>今天</button>
+    <button class="nav-item" data-view="story"><span></span>故事</button>
+    <button class="nav-item" data-view="family"><span></span>一起听</button>
+    <button class="nav-item" data-view="timeline"><span></span>足迹</button>
+  </nav>
+
+  <div class="processing-sheet" id="processingSheet" hidden>
+    <div class="processing-bead"><img src="../assets/xunyi-bean-product.png" alt="寻忆珠珠" /></div>
+    <p id="processEyebrow">正在接住原声</p><h2 id="processTitle">让这段声音慢慢浮现</h2>
+    <div class="process-track"><span id="processBar"></span></div><small id="processHint">原声始终保留</small>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+</main>
+<script src="./app.js"></script>
+</body>
+</html>
